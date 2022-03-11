@@ -1,8 +1,29 @@
 
 import {Box, Button, TextField, Typography} from '@mui/material';
-import React from 'react';
+import {auth} from 'api/firebase';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import React, {useState} from 'react';
 
 export const Logup = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = async () => {
+    try {
+      if (password !== confirmPassword) {
+        throw Error('Passwords does not match!');
+      }
+      await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password,
+      );
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -23,6 +44,9 @@ export const Logup = () => {
         Create an account
       </Typography>
       <TextField
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type='email'
         color='success'
         label='Email'
         variant='standard'
@@ -37,6 +61,9 @@ export const Logup = () => {
         }}
       />
       <TextField
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type='password'
         color='success'
         label='Password'
         variant='standard'
@@ -49,6 +76,9 @@ export const Logup = () => {
         }}
       />
       <TextField
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        type='password'
         color='success'
         label='Confirm password'
         variant='standard'
@@ -61,6 +91,7 @@ export const Logup = () => {
         }}
       />
       <Button
+        onClick={handleSubmit}
         fontFamily='Lato'
         variant='outlined'
         sx={{

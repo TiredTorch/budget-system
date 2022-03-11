@@ -1,8 +1,27 @@
 
 import {Box, Button, TextField, Typography} from '@mui/material';
-import React from 'react';
+import {auth} from 'api/firebase';
+import {signInWithEmailAndPassword} from 'firebase/auth';
+import React, {useState} from 'react';
 
 export const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async () => {
+    try {
+      if (!email | !password) throw Error('Fields have to be filled!');
+
+      await signInWithEmailAndPassword(
+          auth,
+          email,
+          password,
+      );
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -23,6 +42,9 @@ export const Login = () => {
         Log in your account
       </Typography>
       <TextField
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type='email'
         color='success'
         label='Email'
         variant='standard'
@@ -37,6 +59,9 @@ export const Login = () => {
         }}
       />
       <TextField
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type='password'
         color='success'
         label='Password'
         variant='standard'
@@ -49,6 +74,7 @@ export const Login = () => {
         }}
       />
       <Button
+        onClick={handleSubmit}
         fontFamily='Lato'
         variant='outlined'
         sx={{

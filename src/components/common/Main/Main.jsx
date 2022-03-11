@@ -1,7 +1,7 @@
 import {Box} from '@mui/material';
 import React from 'react';
 
-export const Logup = () => {
+export const Main = () => {
   return (
     <Box
       sx={{
