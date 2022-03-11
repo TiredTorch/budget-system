@@ -10,7 +10,7 @@ export const Login = () => {
 
   const handleSubmit = async () => {
     try {
-      if (!email | !password) throw Error('Fields have to be filled!');
+      if (!email || !password) throw Error('Fields have to be filled!');
 
       await signInWithEmailAndPassword(
           auth,
@@ -75,7 +75,6 @@ export const Login = () => {
       />
       <Button
         onClick={handleSubmit}
-        fontFamily='Lato'
         variant='outlined'
         sx={{
           border: '1px solid black',

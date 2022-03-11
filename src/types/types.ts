@@ -1,11 +1,16 @@
 import {User} from 'firebase/auth';
 
-export type ISpends = {
-  item: string,
-  cost: number
+export type ISpend = {
+  spendItem: string,
+  spendCost: number
 }
 
 export type IBudgetContextProps = {
   user : User,
-  spends : Array<ISpends>
+  spends : Array<ISpend>
+}
+
+export type IDeleteSpendManager = {
+  spend: ISpend,
+  deleteSpend: () => void
 }

@@ -2,13 +2,13 @@ import {auth, db} from 'api/firebase';
 import {onAuthStateChanged, User} from 'firebase/auth';
 import {doc, onSnapshot} from 'firebase/firestore';
 import React, {createContext, useEffect, useState, FC, useContext} from 'react';
-import {IBudgetContextProps, ISpends} from 'types/types';
+import {IBudgetContextProps, ISpend} from 'types/types';
 
 const Budget = createContext<Partial<IBudgetContextProps>>({});
 
 export const BudgetContext = ({children} : {children : FC}) => {
   const [user, setUser] = useState<User>();
-  const [spends, setSpends] = useState<Array<ISpends>>();
+  const [spends, setSpends] = useState<Array<ISpend>>();
 
   useEffect(() => {
     if (user) {

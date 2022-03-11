@@ -9,6 +9,7 @@ export const Logup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  // eslint-disable-next-line no-unused-vars
   const handleSubmit = async () => {
     try {
       if (password !== confirmPassword) {
@@ -92,7 +93,6 @@ export const Logup = () => {
       />
       <Button
         onClick={handleSubmit}
-        fontFamily='Lato'
         variant='outlined'
         sx={{
           border: '1px solid black',

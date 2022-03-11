@@ -6,6 +6,7 @@ export const Header = () => {
   return (
     <Box
       sx={{
+        position: 'static',
         w: '100vw',
         minHeight: '5vh',
         bgcolor: 'yellowgreen',
