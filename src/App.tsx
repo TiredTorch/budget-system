@@ -1,15 +1,17 @@
 import {CssBaseline} from '@mui/material';
-import {Main} from 'components/common/Main/Main';
-// import {Login} from 'components/forms/Login/Login';
-import {Layout} from 'layouts/Layout';
+import {BudgetContext} from 'contexts/BudgetContext';
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import {AppRoutes} from 'routes/AppRoutes';
 
 export const App = () => {
   return (
     <CssBaseline>
-      <Layout>
-        <Main/>
-      </Layout>
+      <BudgetContext>
+        <BrowserRouter>
+          <AppRoutes/>
+        </BrowserRouter>
+      </BudgetContext>
     </CssBaseline>
   );
 };

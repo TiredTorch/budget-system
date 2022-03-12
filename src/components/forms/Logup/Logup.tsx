@@ -3,13 +3,16 @@ import {Box, Button, TextField, Typography} from '@mui/material';
 import {auth} from 'api/firebase';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router';
+import {Link} from 'react-router-dom';
 
 export const Logup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // eslint-disable-next-line no-unused-vars
+  const navigate = useNavigate();
+
   const handleSubmit = async () => {
     try {
       if (password !== confirmPassword) {
@@ -19,7 +22,9 @@ export const Logup = () => {
           auth,
           email,
           password,
-      );
+      ).then(() => {
+        navigate('/main');
+      });
     } catch (error) {
       alert(error);
     }
@@ -108,6 +113,14 @@ export const Logup = () => {
       >
         Sign up
       </Button>
+      <Typography
+        fontSize='1vmax'
+        align='center'
+      >
+        <Link to='/login'>
+        Or log in, if you have an account
+        </Link>
+      </Typography>
     </Box>
   );
 };

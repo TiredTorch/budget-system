@@ -6,7 +6,7 @@ export const Layout : FC = ({children}) => {
   return (
     <Box
       sx={{
-        minHeight: '98vh',
+        minHeight: '100vh',
         p: '0 0 2vh 0',
         bgcolor: 'lightgray',
       }}

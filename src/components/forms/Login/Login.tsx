@@ -3,10 +3,14 @@ import {Box, Button, TextField, Typography} from '@mui/material';
 import {auth} from 'api/firebase';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router';
+import {Link} from 'react-router-dom';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
@@ -16,7 +20,9 @@ export const Login = () => {
           auth,
           email,
           password,
-      );
+      ).then(() => {
+        navigate('/main');
+      });
     } catch (error) {
       alert(error);
     }
@@ -90,6 +96,14 @@ export const Login = () => {
       >
         Sign in
       </Button>
+      <Typography
+        fontSize='1vmax'
+        align='center'
+      >
+        <Link to='/register'>
+        Or create it, if you dont have an account
+        </Link>
+      </Typography>
     </Box>
   );
 };

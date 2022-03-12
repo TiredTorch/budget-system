@@ -2,6 +2,10 @@ import {Box, Button, Card, TextField, Typography} from '@mui/material';
 import React, {useState} from 'react';
 import {MainCard} from '../MainCard/MainCard';
 import {ISpend} from '../../../types/types';
+import {signOut} from 'firebase/auth';
+import {auth} from 'api/firebase';
+import {useNavigate} from 'react-router';
+import {getBudgetState} from 'contexts/BudgetContext';
 
 export const Main = () => {
   const initialSpends : Array<ISpend> = [
@@ -27,6 +31,10 @@ export const Main = () => {
   const [newSpendItem, setSpendItem] = useState('');
   const [newSpendCost, setSpendCost] = useState<number|void>();
 
+  const navigate = useNavigate();
+
+  const budgetState = getBudgetState();
+
   const handleDeleteSpend = (spend:ISpend) => {
     setSpends(spends.filter((curSpend) => curSpend !== spend));
   };
@@ -45,6 +53,10 @@ export const Main = () => {
     setSpends([...spends, newSpend]);
     setSpendItem('');
     setSpendCost();
+  };
+
+  const handleLogOut = () => {
+    signOut(auth).then(() => navigate('/login'));
   };
 
   return (
@@ -68,7 +80,7 @@ export const Main = () => {
           minWidth: '90vw',
         }}
       >
-        Page of User name
+        Page of {budgetState?.user?.email}
       </Typography>
       <Card
         sx={{
@@ -178,6 +190,7 @@ export const Main = () => {
         );
       })}
       <Button
+        onClick={handleLogOut}
         variant='outlined'
         sx={{
           fontSize: '2vmax',
