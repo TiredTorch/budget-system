@@ -1,63 +1,75 @@
 import {Box, Button, Card, TextField, Typography} from '@mui/material';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {MainCard} from '../MainCard/MainCard';
 import {ISpend} from '../../../types/types';
 import {signOut} from 'firebase/auth';
-import {auth} from 'api/firebase';
+import {auth, db} from 'api/firebase';
 import {useNavigate} from 'react-router';
 import {getBudgetState} from 'contexts/BudgetContext';
+import {doc, setDoc} from 'firebase/firestore';
 
 export const Main = () => {
-  const initialSpends : Array<ISpend> = [
-    {
-      spendItem: 'govno 2',
-      spendCost: 22,
-    },
-    {
-      spendItem: 'govno 3',
-      spendCost: 47,
-    },
-    {
-      spendItem: 'govno 4',
-      spendCost: 47,
-    },
-    {
-      spendItem: 'govno 5',
-      spendCost: 47,
-    },
-  ];
-  const [spends, setSpends] = useState(initialSpends);
+  const budgetState = getBudgetState();
+
+  useEffect(() => {
+    setSpends(budgetState?.spends??[]);
+  }, [budgetState?.spends]);
+
+
+  const [spends, setSpends] = useState(
+      budgetState?.spends??[],
+  );
 
   const [newSpendItem, setSpendItem] = useState('');
   const [newSpendCost, setSpendCost] = useState<number|void>();
 
   const navigate = useNavigate();
 
-  const budgetState = getBudgetState();
+  const handleDeleteSpend = async (spend:ISpend) => {
+    try {
+      const spendsRef = doc(db, 'spends', `${budgetState?.user?.uid}`);
 
-  const handleDeleteSpend = (spend:ISpend) => {
-    setSpends(spends.filter((curSpend) => curSpend !== spend));
+      await setDoc(
+          spendsRef,
+          {spends: spends.filter((curSpend) => curSpend !== spend)},
+          {merge: true},
+      );
+      ;
+    } catch (error) {
+      alert(error);
+    }
   };
 
-  const handleAddSpend = () => {
-    if (!newSpendItem || !newSpendCost) {
-      alert('You have to fill empty inputs!');
-      return;
+  const handleAddSpend = async () => {
+    try {
+      if (!newSpendItem || !newSpendCost) {
+        alert('You have to fill empty inputs!');
+        return;
+      }
+
+      const spendsRef = doc(db, 'spends', `${budgetState?.user?.uid}`);
+      const newSpend = {
+        spendItem: newSpendItem,
+        spendCost: newSpendCost,
+      };
+      await setDoc(
+          spendsRef,
+          {spends: budgetState?.spends ?
+            [...budgetState?.spends, newSpend] : [newSpend]},
+          {merge: true},
+      );
+
+      setSpendItem('');
+      setSpendCost();
+    } catch (error) {
+      alert(error);
     }
-
-    const newSpend = {
-      spendItem: newSpendItem,
-      spendCost: newSpendCost,
-    };
-
-    setSpends([...spends, newSpend]);
-    setSpendItem('');
-    setSpendCost();
   };
 
   const handleLogOut = () => {
     signOut(auth).then(() => navigate('/login'));
   };
+
 
   return (
     <Box
