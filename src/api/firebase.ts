@@ -1,17 +1,24 @@
 import {initializeApp} from 'firebase/app';
-import {getAuth} from 'firebase/auth';
-import {getFirestore} from 'firebase/firestore';
+import {Auth, getAuth} from 'firebase/auth';
+import {Firestore, getFirestore} from 'firebase/firestore';
+import firebase from 'firebase/compat/app';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA1xGVDso6iYJIcyCVjnOsLX8U0No5dliU',
-  authDomain: 'budget-control-508a0.firebaseapp.com',
-  projectId: 'budget-control-508a0',
-  storageBucket: 'budget-control-508a0.appspot.com',
-  messagingSenderId: '409444570200',
-  appId: '1:409444570200:web:61f41861e254c78155a62d',
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+export let auth : Auth;
+export let db : Firestore;
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+if (!firebase.apps.length) {
+  const app = initializeApp(firebaseConfig);
+
+  auth = getAuth(app);
+  db = getFirestore(app);
+}
+
