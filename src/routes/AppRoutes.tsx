@@ -1,9 +1,9 @@
 import {Layout} from 'layouts/Layout';
-import React from 'react';
+import React, {FC} from 'react';
 import {Route, Routes} from 'react-router';
-import {routes} from './routesList';
+import {IAppRoutesProps} from 'types/types';
 
-export const AppRoutes = () => {
+export const AppRoutes : FC<IAppRoutesProps> = ({routes}) => {
   return (
     <Routes>
       {routes.map((route) => {
@@ -15,7 +15,7 @@ export const AppRoutes = () => {
             key={`route ${route.path}`}
             element={
               <Layout>
-                <route.component/>
+                <route.page/>
               </Layout>
             }
           />

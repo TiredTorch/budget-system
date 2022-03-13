@@ -2,7 +2,7 @@ import {Button, Card, Typography} from '@mui/material';
 import React, {FC} from 'react';
 import {IDeleteSpendManager} from 'types/types';
 
-export const MainCard : FC<IDeleteSpendManager> =
+export const HomeCard : FC<IDeleteSpendManager> =
   ({spend, deleteSpend}) => {
     return (
       <Card

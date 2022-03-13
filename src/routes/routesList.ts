@@ -1,22 +1,22 @@
-import {Main} from 'components/common/Main/Main';
-import {Login} from 'components/forms/Login/Login';
-import {Logup} from 'components/forms/Logup/Logup';
+import {HomePage} from 'pages/common/HomePage';
+import {LoginPage} from 'pages/forms/LoginPage';
+import {LogupPage} from 'pages/forms/LogupPage';
 import {IRoute} from 'types/types';
 
 export const routes: Array<IRoute> = [
   {
     path: '/login',
-    component: Login,
+    page: LoginPage,
     auth: false,
   },
   {
     path: '/register',
-    component: Logup,
+    page: LogupPage,
     auth: false,
   },
   {
     path: '/main',
-    component: Main,
+    page: HomePage,
     auth: false,
   },
 ];

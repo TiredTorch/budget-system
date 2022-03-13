@@ -6,11 +6,6 @@ export type ISpend = {
   spendCost: number
 }
 
-export type IBudgetContextProps = {
-  user : User | undefined,
-  spends : Array<ISpend> | undefined,
-}
-
 export type IDeleteSpendManager = {
   spend: ISpend,
   deleteSpend: () => void
@@ -18,6 +13,15 @@ export type IDeleteSpendManager = {
 
 export type IRoute = {
   path: string;
-  component: FC;
+  page: FC;
   auth: boolean;
+}
+
+export type IBudgetContextProps = {
+  user : User | undefined,
+  spends : Array<ISpend> | undefined,
+}
+
+export type IAppRoutesProps = {
+  routes : Array<IRoute>
 }

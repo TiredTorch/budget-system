@@ -1,6 +1,6 @@
 import {Box, Button, Card, TextField, Typography} from '@mui/material';
 import React, {useState, useEffect} from 'react';
-import {MainCard} from '../MainCard/MainCard';
+import {HomeCard} from '../HomeCard/HomeCard';
 import {ISpend} from '../../../types/types';
 import {signOut} from 'firebase/auth';
 import {auth, db} from 'api/firebase';
@@ -8,7 +8,7 @@ import {useNavigate} from 'react-router';
 import {getBudgetState} from 'contexts/BudgetContext';
 import {doc, setDoc} from 'firebase/firestore';
 
-export const Main = () => {
+export const Home = () => {
   const budgetState = getBudgetState();
 
   useEffect(() => {
@@ -194,7 +194,7 @@ export const Main = () => {
       </Typography>
       {spends.map((curSpend) => {
         return (
-          <MainCard
+          <HomeCard
             key={`spend: ${curSpend.spendItem}`}
             spend={curSpend}
             deleteSpend={() => handleDeleteSpend(curSpend)}
