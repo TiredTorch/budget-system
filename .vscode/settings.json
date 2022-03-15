@@ -4,6 +4,7 @@
     "bgcolor",
     "firebaseapp",
     "Firestore",
+    "Formik",
     "Logup"
   ]
 }
