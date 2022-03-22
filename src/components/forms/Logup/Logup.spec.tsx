@@ -14,17 +14,35 @@ describe('Testing Login component', () => {
     );
 
     userEvent.type(screen.getByLabelText(/Email/i), 'user@gmail.com');
-    userEvent.type(screen.getByLabelText('Password'), '222222');
-    userEvent.type(screen.getByLabelText(/Confirm password/i), '222222');
+    userEvent.type(screen.getByLabelText('Password'), '22222222');
+    userEvent.type(screen.getByLabelText(/Confirm password/i), '22222222');
 
     userEvent.click(screen.getByRole('button', {name: /Sign up/i}));
 
     await waitFor(() =>
       expect(handleSubmit).toHaveBeenCalledWith({
         email: 'user@gmail.com',
-        password: '222222',
-        confirmPassword: '222222',
+        password: '22222222',
+        confirmPassword: '22222222',
       }),
+    );
+  });
+  test('should render and dont submit login form', async () => {
+    const handleSubmit = jest.fn();
+    render(
+        <BrowserRouter>
+          <Logup onSubmit={handleSubmit}/>
+        </BrowserRouter>,
+    );
+
+    userEvent.type(screen.getByLabelText(/Email/i), 'user@gmail.com');
+    userEvent.type(screen.getByLabelText('Password'), '222222');
+    userEvent.type(screen.getByLabelText(/Confirm password/i), '222222');
+
+    userEvent.click(screen.getByRole('button', {name: /Sign up/i}));
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledTimes(0),
     );
   });
 });
