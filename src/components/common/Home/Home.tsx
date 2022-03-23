@@ -1,75 +1,25 @@
 import {Box, Button, Card, TextField, Typography} from '@mui/material';
-import React, {useState, useEffect} from 'react';
+import React, {FC} from 'react';
 import {HomeCard} from '../HomeCard/HomeCard';
-import {ISpend} from '../../../types/types';
-import {signOut} from 'firebase/auth';
-import {auth, db} from 'api/firebase';
-import {useNavigate} from 'react-router';
-import {getBudgetState} from 'contexts/BudgetContext';
-import {doc, setDoc} from 'firebase/firestore';
+import {IHomePageProps} from '../../../types/types';
+import {useFormik} from 'formik';
 
-export const Home = () => {
-  const budgetState = getBudgetState();
-
-  useEffect(() => {
-    setSpends(budgetState?.spends??[]);
-  }, [budgetState?.spends]);
-
-
-  const [spends, setSpends] = useState(
-      budgetState?.spends??[],
-  );
-
-  const [newSpendItem, setSpendItem] = useState('');
-  const [newSpendCost, setSpendCost] = useState<number|void>();
-
-  const navigate = useNavigate();
-
-  const handleDeleteSpend = async (spend:ISpend) => {
-    try {
-      const spendsRef = doc(db, 'spends', `${budgetState?.user?.uid}`);
-
-      await setDoc(
-          spendsRef,
-          {spends: spends.filter((curSpend) => curSpend !== spend)},
-          {merge: true},
-      );
-      ;
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  const handleAddSpend = async () => {
-    try {
-      if (!newSpendItem || !newSpendCost) {
-        alert('You have to fill empty inputs!');
-        return;
-      }
-
-      const spendsRef = doc(db, 'spends', `${budgetState?.user?.uid}`);
-      const newSpend = {
-        spendItem: newSpendItem,
-        spendCost: newSpendCost,
-      };
-      await setDoc(
-          spendsRef,
-          {spends: budgetState?.spends ?
-            [...budgetState?.spends, newSpend] : [newSpend]},
-          {merge: true},
-      );
-
-      setSpendItem('');
-      setSpendCost();
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  const handleLogOut = () => {
-    signOut(auth).then(() => navigate('/login'));
-  };
-
+export const Home: FC<IHomePageProps> = (
+    {
+      budgetState,
+      logOut,
+      addSpend,
+      deleteSpend,
+      spendManager: {spends, setSpends},
+    },
+) => {
+  const formik = useFormik({
+    initialValues: {
+      spendItem: '',
+      spendCost: '',
+    },
+    onSubmit: (values) => addSpend(values),
+  });
 
   return (
     <Box
@@ -108,76 +58,78 @@ export const Home = () => {
         >
           Add some of yours spends
         </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-          }}
-        >
-          <TextField
-            value={newSpendItem}
-            onChange={(e) => {
-              setSpendItem(e.target.value);
-            }}
-            color='success'
-            label='What did you bought'
-            variant='standard'
-            inputProps={{style: {
-              fontSize: '1.5vmax',
-            }}}
-            InputLabelProps={{style: {fontSize: '1.5vmax'}}}
+        <form onSubmit={formik.handleSubmit}>
+          <Box
             sx={{
-              minWidth: '40%',
-              m: '2vh 0',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-evenly',
             }}
-          />
-          <TextField
-            value={newSpendCost??''}
-            onChange={(e) => {
-              setSpendCost(Number(e.target.value));
-            }}
-            color='success'
-            label='How much is it?'
-            type='number'
-            variant='standard'
-            inputProps={{style: {
-              fontSize: '1.5vmax',
-            }}}
-            InputLabelProps={{style: {fontSize: '1.5vmax'}}}
+          >
+            <TextField
+              value={formik.values.spendItem}
+              onChange={formik.handleChange}
+              name='spendItem'
+              id='spendItem'
+              color='success'
+              label='What did you bought'
+              variant='standard'
+              inputProps={{style: {
+                fontSize: '1.5vmax',
+              }}}
+              InputLabelProps={{style: {fontSize: '1.5vmax'}}}
+              sx={{
+                minWidth: '40%',
+                m: '2vh 0',
+              }}
+            />
+            <TextField
+              value={formik.values.spendCost}
+              onChange={formik.handleChange}
+              color='success'
+              id='spendCost'
+              name='spendCost'
+              label='How much is it?'
+              type='number'
+              variant='standard'
+              inputProps={{style: {
+                fontSize: '1.5vmax',
+              }}}
+              InputLabelProps={{style: {fontSize: '1.5vmax'}}}
+              sx={{
+                minWidth: '40%',
+                m: '2vh 0',
+                'input[type=number]::-webkit-outer-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: '0',
+                },
+                'input[type=number]::-webkit-inner-spin-button': {
+                  WebkitAppearance: 'none',
+                  margin: '0',
+                },
+
+              }}
+            />
+          </Box>
+          <Button
+            type='submit'
+            variant='outlined'
             sx={{
-              minWidth: '40%',
-              m: '2vh 0',
-              'input[type=number]::-webkit-outer-spin-button': {
-                WebkitAppearance: 'none',
-                margin: '0',
-              },
-              'input[type=number]::-webkit-inner-spin-button': {
-                WebkitAppearance: 'none',
-                margin: '0',
-              },
+              fontSize: '1.2vmax',
+              m: '2vh 20%',
+              minWidth: '60%',
+              border: '1px solid black',
+              color: 'black',
+              fontWeight: '700',
+              '&:hover': {
+                border: '1px solid green',
 
+              },
             }}
-          />
-        </Box>
-        <Button
-          onClick={handleAddSpend}
-          variant='outlined'
-          sx={{
-            fontSize: '1.2vmax',
-            m: '2vh 20%',
-            minWidth: '60%',
-            border: '1px solid black',
-            color: 'black',
-            fontWeight: '700',
-            '&:hover': {
-              border: '1px solid green',
-
-            },
-          }}
-        >
+          >
           Add spend
-        </Button>
+          </Button>
+        </form>
       </Card>
       <Typography
         fontSize='3vmax'
@@ -197,12 +149,12 @@ export const Home = () => {
           <HomeCard
             key={`spend: ${curSpend.spendItem}`}
             spend={curSpend}
-            deleteSpend={() => handleDeleteSpend(curSpend)}
+            deleteSpend={() => deleteSpend(curSpend)}
           />
         );
       })}
       <Button
-        onClick={handleLogOut}
+        onClick={logOut}
         variant='outlined'
         sx={{
           fontSize: '2vmax',

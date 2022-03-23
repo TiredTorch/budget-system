@@ -25,3 +25,15 @@ export type IBudgetContextProps = {
 export type IAppRoutesProps = {
   routes : Array<IRoute>
 }
+
+export type IHomePageProps = {
+  budgetState: IBudgetContextProps | null
+  logOut: () => void
+  addSpend: (values: any) => Promise<void>
+  deleteSpend: (spend: ISpend) => Promise<void>
+  spendManager: {
+    spends: ISpend[]
+    setSpends: React.Dispatch<React.SetStateAction<ISpend[]>>
+  }
+
+}
