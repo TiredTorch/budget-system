@@ -1,8 +1,8 @@
+import {FC} from 'react';
 import {Box, Button, Card, TextField, Typography} from '@mui/material';
-import React, {FC} from 'react';
-import {HomeCard} from './HomeCard/HomeCard';
-import {IHomePageProps} from '../../../types/types';
 import {useFormik} from 'formik';
+import {IHomePageProps} from '../../../types/types';
+import {HomeCard} from './HomeCard/HomeCard';
 
 export const Home: FC<IHomePageProps> = (
     {

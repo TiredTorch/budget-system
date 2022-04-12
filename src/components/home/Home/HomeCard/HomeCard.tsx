@@ -1,5 +1,5 @@
+import {FC} from 'react';
 import {Button, Card, Typography} from '@mui/material';
-import React, {FC} from 'react';
 import {IDeleteSpendManager} from 'types/types';
 
 export const HomeCard : FC<IDeleteSpendManager> =

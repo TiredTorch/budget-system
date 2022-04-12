@@ -1,11 +1,11 @@
+import {useEffect, useState} from 'react';
+import {signOut} from 'firebase/auth';
+import {doc, setDoc} from 'firebase/firestore';
+import {useNavigate} from 'react-router';
+import {ISpend} from 'types/types';
 import {auth, db} from 'firebaseAPI/firebase';
 import {Home} from 'components/home/Home/Home';
 import {getBudgetState} from 'contexts/BudgetContext';
-import {signOut} from 'firebase/auth';
-import {doc, setDoc} from 'firebase/firestore';
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router';
-import {ISpend} from 'types/types';
 
 export const HomePage = () => {
   const budgetState = getBudgetState();

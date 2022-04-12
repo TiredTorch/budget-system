@@ -1,7 +1,7 @@
+import {FC} from 'react';
+import {Link} from 'react-router-dom';
 import {Box, Button, TextField, Typography} from '@mui/material';
 import {useFormik} from 'formik';
-import React, {FC} from 'react';
-import {Link} from 'react-router-dom';
 import {loginSchema} from './Login.schema';
 
 export const Login: FC<any> = ({onSubmit}): any => {

@@ -1,5 +1,5 @@
-import {User} from 'firebase/auth';
 import {FC} from 'react';
+import {User} from 'firebase/auth';
 
 export type ISpend = {
   spendItem: string,

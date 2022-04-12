@@ -1,8 +1,7 @@
+import {signInWithEmailAndPassword} from 'firebase/auth';
+import {useNavigate} from 'react-router';
 import {auth} from 'firebaseAPI/firebase';
 import {Login} from 'components/forms/Login/Login';
-import {signInWithEmailAndPassword} from 'firebase/auth';
-import React from 'react';
-import {useNavigate} from 'react-router';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
