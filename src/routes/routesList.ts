@@ -1,6 +1,6 @@
 import {HomePage} from 'pages/common/HomePage';
-import {LoginPage} from 'pages/forms/LoginPage';
-import {LogupPage} from 'pages/forms/LogupPage';
+import {LoginPage} from 'pages/LoginPage';
+import {LogupPage} from 'pages/LogupPage';
 import {IRoute} from 'types/types';
 
 export const routes: Array<IRoute> = [
@@ -15,8 +15,8 @@ export const routes: Array<IRoute> = [
     auth: false,
   },
   {
-    path: '/main',
+    path: '/',
     page: HomePage,
-    auth: false,
+    auth: true,
   },
 ];

@@ -18,7 +18,7 @@ export const LogupPage = () => {
           values.email,
           values.password,
       ).then(() => {
-        navigate('/main');
+        navigate('/');
       });
     } catch (error) {
       alert(error);

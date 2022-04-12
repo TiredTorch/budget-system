@@ -7,6 +7,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values: { email: string; password: string; }) => {
+    console.log(auth.currentUser);
     try {
       if (!values.email || !values.password) {
         throw Error('Fields have to be filled!');
@@ -18,7 +19,8 @@ export const LoginPage = () => {
           values.password,
       );
       if (data) {
-        navigate('/main');
+        navigate('/');
+        console.log(auth.currentUser);
       }
     } catch (error) {
       alert(error);
