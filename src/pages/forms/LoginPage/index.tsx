@@ -13,13 +13,14 @@ export const LoginPage = () => {
         throw Error('Fields have to be filled!');
       }
 
-      await signInWithEmailAndPassword(
+      const data = await signInWithEmailAndPassword(
           auth,
           values.email,
           values.password,
-      ).then(() => {
+      );
+      if (data) {
         navigate('/main');
-      });
+      }
     } catch (error) {
       alert(error);
     }

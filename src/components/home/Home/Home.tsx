@@ -1,6 +1,6 @@
 import {Box, Button, Card, TextField, Typography} from '@mui/material';
 import React, {FC} from 'react';
-import {HomeCard} from '../HomeCard/HomeCard';
+import {HomeCard} from './HomeCard/HomeCard';
 import {IHomePageProps} from '../../../types/types';
 import {useFormik} from 'formik';
 

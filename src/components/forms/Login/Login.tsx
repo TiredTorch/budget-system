@@ -2,22 +2,15 @@ import {Box, Button, TextField, Typography} from '@mui/material';
 import {useFormik} from 'formik';
 import React, {FC} from 'react';
 import {Link} from 'react-router-dom';
-import * as Yup from 'yup';
+import {loginSchema} from './Login.schema';
 
 export const Login: FC<any> = ({onSubmit}): any => {
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string()
-        .min(8, 'Too Short!')
-        .required('Required'),
-  });
-
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    validationSchema: LoginSchema,
+    validationSchema: loginSchema,
     onSubmit: (values) => onSubmit(values),
   });
 

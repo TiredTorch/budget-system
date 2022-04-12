@@ -1,0 +1,11 @@
+1. Вынести фаербейс
+2. 18 реакт
+3. порядок импортов
+4. удалить реакт из импорта
+5. useRoutes / useRouter
+6. materialUI / themeConfig
+7. git flow
+8. husky 
+9. readme.md
+10. react intl, i18-next
+11. implement ui / common / button textfield

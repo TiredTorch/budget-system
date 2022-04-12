@@ -1,8 +1,4 @@
-/* eslint-disable no-unused-vars */
-import {auth, db} from 'api/firebase';
-import {onAuthStateChanged, User} from 'firebase/auth';
-import {doc, onSnapshot} from 'firebase/firestore';
-import React, {
+import {
   createContext,
   useEffect,
   useState,
@@ -10,8 +6,10 @@ import React, {
   useContext,
   ReactNode,
 } from 'react';
-import {useNavigate} from 'react-router';
+import {onAuthStateChanged, User} from 'firebase/auth';
+import {doc, onSnapshot} from 'firebase/firestore';
 import {IBudgetContextProps, ISpend} from 'types/types';
+import {auth, db} from 'api/firebase';
 
 const Budget = createContext<IBudgetContextProps | null>(null);
 

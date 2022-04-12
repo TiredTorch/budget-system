@@ -23,6 +23,7 @@
         "require-jsdoc": "off",
         "linebreak-style": "off",
         "react/prop-types": "off",
-        "quote-props": "off"
+        "quote-props": "off",
+        "react/react-in-jsx-scope": "off"
     }
 }

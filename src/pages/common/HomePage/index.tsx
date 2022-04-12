@@ -1,5 +1,5 @@
 import {auth, db} from 'api/firebase';
-import {Home} from 'components/common/Home/Home';
+import {Home} from 'components/home/Home/Home';
 import {getBudgetState} from 'contexts/BudgetContext';
 import {signOut} from 'firebase/auth';
 import {doc, setDoc} from 'firebase/firestore';
