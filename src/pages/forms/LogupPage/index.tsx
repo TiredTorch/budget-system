@@ -1,4 +1,4 @@
-import {auth} from 'api/firebase';
+import {auth} from 'firebaseAPI/firebase';
 import {Logup} from 'components/forms/Logup/Logup';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import React from 'react';
