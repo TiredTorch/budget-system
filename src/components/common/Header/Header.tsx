@@ -1,5 +1,6 @@
 import {Typography} from '@mui/material';
 import {Box} from '@mui/system';
+import i18next from 'i18n';
 
 export const Header = () => {
   return (
@@ -13,7 +14,7 @@ export const Header = () => {
       }}
     >
       <Typography fontSize="3vmax" align='center' fontFamily='Lato'>
-        Budget Control System
+        {i18next.t('title')}
       </Typography>
     </Box>
   );
