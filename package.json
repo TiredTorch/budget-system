@@ -27,6 +27,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "lint": "eslint .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -57,6 +58,7 @@
   },
   "lint-staged": {
     "*.{ts, tsx, md}": [
+      "npm lint",
       "git add"
     ]
   },

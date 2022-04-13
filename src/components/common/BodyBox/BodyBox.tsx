@@ -1,12 +1,12 @@
-import {FC, useEffect, useState} from 'react';
-import {Box} from '@mui/system';
+import { FC, useEffect, useState } from 'react';
+import { Box } from '@mui/system';
 
 type BodyBoxProps = {
   children: React.ReactNode
   type: string
 }
 
-export const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
+const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
   const [personalStyle, setPersonalStyle] = useState({
     margin: '5vh 25vw',
     maxWidth: '50vw',
@@ -51,3 +51,5 @@ export const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
     </Box>
   );
 };
+
+export default BodyBox;

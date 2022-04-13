@@ -2,11 +2,11 @@ import {FC} from 'react';
 import {Box, Button, Card, Typography} from '@mui/material';
 import {useFormik} from 'formik';
 import {IHomePageProps} from '../../../types/types';
-import {HomeCard} from './HomeCard/HomeCard';
-import {BodyBox} from 'components/common/BodyBox/BodyBox';
-import {UserInputs} from 'components/common/UserInputs/UserInputs';
+import HomeCard from './HomeCard/HomeCard';
+import BodyBox from 'components/common/BodyBox/BodyBox';
+import Input from 'components/common/UserInputs/Input';
 
-export const Home: FC<IHomePageProps> = (
+const Home: FC<IHomePageProps> = (
     {
       budgetState,
       logOut,
@@ -59,14 +59,14 @@ export const Home: FC<IHomePageProps> = (
             }}
           >
 
-            <UserInputs
+            <Input
               formik={formik}
               name={'spendItem'}
               type={'text'}
               label={'What did you bought'}
             />
 
-            <UserInputs
+            <Input
               formik={formik}
               name={'spendCost'}
               type={'number'}
@@ -138,3 +138,5 @@ export const Home: FC<IHomePageProps> = (
 
   );
 };
+
+export default Home;

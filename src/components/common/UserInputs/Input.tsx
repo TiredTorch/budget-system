@@ -1,20 +1,20 @@
-import {FC} from 'react';
-import {TextField} from '@mui/material';
-import {FormikValues} from 'formik';
+import { FC } from 'react';
+import { TextField as MUITextField } from '@mui/material';
+import { FormikValues } from 'formik';
 
-type UserInputsProps = {
+type InputProps = {
   formik: FormikValues
   name: string
   type: string
   label: string
 }
 
-export const UserInputs : FC<UserInputsProps> =
+const Input : FC<InputProps> =
   ({formik, name, type, label}) => {
     return (
       (formik.values[name] === undefined) ?
-      <h3>smth went wrong</h3> :
-      <TextField
+      <h3>Something went wrong</h3> :
+      <MUITextField
         value={formik.values[name]}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -38,3 +38,5 @@ export const UserInputs : FC<UserInputsProps> =
       />
     );
   };
+
+export default Input;

@@ -1,12 +1,12 @@
-import {FC} from 'react';
-import {Link} from 'react-router-dom';
-import {Button, Typography} from '@mui/material';
-import {useFormik} from 'formik';
-import {logupSchema} from './Logup.schema';
-import {BodyBox} from 'components/common/BodyBox/BodyBox';
-import {UserInputs} from 'components/common/UserInputs/UserInputs';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Typography } from '@mui/material';
+import { useFormik } from 'formik';
+import logupSchema from './Logup.schema';
+import BodyBox from 'components/common/BodyBox/BodyBox';
+import Input from 'components/common/UserInputs/Input';
 
-export const Logup: FC<any> = ({onSubmit}): any => {
+const Logup: FC<any> = ({onSubmit}): any => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -30,19 +30,19 @@ export const Logup: FC<any> = ({onSubmit}): any => {
         Create an account
         </Typography>
 
-        <UserInputs
+        <Input
           formik={formik}
           name={'email'}
           type={'email'}
           label={'Email'}
         />
-        <UserInputs
+        <Input
           formik={formik}
           name={'password'}
           type={'password'}
           label={'Password'}
         />
-        <UserInputs
+        <Input
           formik={formik}
           name={'confirmPassword'}
           type={'password'}
@@ -78,3 +78,5 @@ export const Logup: FC<any> = ({onSubmit}): any => {
     </BodyBox>
   );
 };
+
+export default Logup;

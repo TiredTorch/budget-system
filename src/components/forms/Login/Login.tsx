@@ -1,12 +1,12 @@
-import {FC} from 'react';
-import {Link} from 'react-router-dom';
-import {Button, Typography} from '@mui/material';
-import {useFormik} from 'formik';
-import {loginSchema} from './Login.schema';
-import {BodyBox} from 'components/common/BodyBox/BodyBox';
-import {UserInputs} from 'components/common/UserInputs/UserInputs';
+import { FC } from 'react';
+import { Link} from 'react-router-dom';
+import { Button, Typography} from '@mui/material';
+import { useFormik } from 'formik';
+import loginSchema from './Login.schema';
+import BodyBox from 'components/common/BodyBox/BodyBox';
+import Input from 'components/common/UserInputs/Input';
 
-export const Login: FC<any> = ({onSubmit}): any => {
+const Login: FC<any> = ({onSubmit}): any => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -29,16 +29,16 @@ export const Login: FC<any> = ({onSubmit}): any => {
             fontWeight='700'
             m='2vh 0'
           >
-        Log in your account
+            Log in your account
           </Typography>
 
-          <UserInputs
+          <Input
             formik={formik}
             name={'email'}
             type={'email'}
             label={'Email'}
           />
-          <UserInputs
+          <Input
             formik={formik}
             name={'password'}
             type={'password'}
@@ -59,7 +59,7 @@ export const Login: FC<any> = ({onSubmit}): any => {
               },
             }}
           >
-              Sign in
+            Sign in
           </Button>
         </form>
       }
@@ -68,9 +68,11 @@ export const Login: FC<any> = ({onSubmit}): any => {
         align='center'
       >
         <Link to='/register'>
-        Or create it, if you dont have an account
+          Or create it, if you dont have an account
         </Link>
       </Typography>
     </BodyBox>
   );
 };
+
+export default Login;

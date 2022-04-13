@@ -6,6 +6,7 @@
     "firebaseapp",
     "Firestore",
     "Formik",
+    "linebreak",
     "Logup"
   ]
 }

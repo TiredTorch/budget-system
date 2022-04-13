@@ -6,3 +6,5 @@ export const loginSchema = object().shape({
       .min(8, 'Too Short!')
       .required('Required'),
 });
+
+export default loginSchema;

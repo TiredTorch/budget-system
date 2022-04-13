@@ -1,15 +1,9 @@
-import {lazy} from 'react';
-import {IRoute} from 'types/types';
+import { lazy } from 'react';
+import { IRoute } from 'types/types';
 
-const LoginPage = lazy(() =>
-  import('pages/LoginPage').then((module) => ({default: module.LoginPage})),
-);
-const LogupPage = lazy(() =>
-  import('pages/LogupPage').then((module) => ({default: module.LogupPage})),
-);
-const HomePage = lazy(() =>
-  import('pages/HomePage').then((module) => ({default: module.HomePage})),
-);
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const LogupPage = lazy(() => import('pages/LogupPage'));
+const HomePage = lazy(() => import('pages/HomePage'));
 
 export const routes: Array<IRoute> = [
   {

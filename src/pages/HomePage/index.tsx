@@ -1,13 +1,13 @@
-import {useEffect, useState} from 'react';
-import {signOut} from 'firebase/auth';
-import {doc, setDoc} from 'firebase/firestore';
-import {useNavigate} from 'react-router';
-import {ISpend} from 'types/types';
-import {auth, db} from 'firebaseAPI/firebase';
-import {Home} from 'components/home/Home/Home';
-import {getBudgetState} from 'contexts/BudgetContext';
+import { useEffect, useState } from 'react';
+import { signOut } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router';
+import { ISpend } from 'types/types';
+import { auth, db } from 'firebaseAPI/firebase';
+import { getBudgetState } from 'contexts/BudgetContext';
+import Home from 'components/home/Home/Home';
 
-export const HomePage = () => {
+const HomePage = () => {
   const budgetState = getBudgetState();
 
   const [spends, setSpends] = useState(
@@ -73,3 +73,5 @@ export const HomePage = () => {
     />
   );
 };
+
+export default HomePage;

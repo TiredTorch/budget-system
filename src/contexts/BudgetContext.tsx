@@ -6,10 +6,10 @@ import {
   useContext,
   ReactNode,
 } from 'react';
-import {onAuthStateChanged, User} from 'firebase/auth';
-import {doc, onSnapshot} from 'firebase/firestore';
-import {IBudgetContextProps, ISpend} from 'types/types';
-import {auth, db} from 'firebaseAPI/firebase';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { IBudgetContextProps, ISpend } from 'types/types';
+import { auth, db } from 'firebaseAPI/firebase';
 
 const Budget = createContext<IBudgetContextProps | null>(null);
 

@@ -24,6 +24,7 @@
         "linebreak-style": "off",
         "react/prop-types": "off",
         "quote-props": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "object-curly-spacing": "off"
     }
 }

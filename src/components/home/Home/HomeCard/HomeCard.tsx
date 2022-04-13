@@ -2,7 +2,7 @@ import {FC} from 'react';
 import {Button, Card, Typography} from '@mui/material';
 import {IDeleteSpendManager} from 'types/types';
 
-export const HomeCard : FC<IDeleteSpendManager> =
+const HomeCard : FC<IDeleteSpendManager> =
   ({spend, deleteSpend}) => {
     return (
       <Card
@@ -41,3 +41,5 @@ export const HomeCard : FC<IDeleteSpendManager> =
       </Card>
     );
   };
+
+export default HomeCard;

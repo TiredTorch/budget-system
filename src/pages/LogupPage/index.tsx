@@ -1,9 +1,9 @@
-import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {useNavigate} from 'react-router';
-import {auth} from 'firebaseAPI/firebase';
-import {Logup} from 'components/forms/Logup/Logup';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router';
+import { auth } from 'firebaseAPI/firebase';
+import Logup from 'components/forms/Logup/Logup';
 
-export const LogupPage = () => {
+const LogupPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (
@@ -29,3 +29,4 @@ export const LogupPage = () => {
     <Logup onSubmit={handleSubmit}/>
   );
 };
+export default LogupPage;

@@ -1,8 +1,8 @@
-import {FC} from 'react';
-import {Box} from '@mui/material';
-import {Header} from '../components/common/Header/Header';
+import { FC } from 'react';
+import { Box } from '@mui/material';
+import Header from '../components/common/Header/Header';
 
-export const Layout : FC = ({children}) => {
+const Layout : FC = ({children}) => {
   return (
     <Box
       sx={{
@@ -16,3 +16,5 @@ export const Layout : FC = ({children}) => {
     </Box>
   );
 };
+
+export default Layout;

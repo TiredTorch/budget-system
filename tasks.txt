@@ -9,3 +9,14 @@
 9. readme.md  +
 10. react intl, i18-next---------------------------------
 11. implement ui / common / button textfield +  (у кнопок сильно много различного)
+
+1. default export
+2. удалить ветки
+3. rewrite static text
+4. format
+5. import textfield as NOTinput +++
+6. redirect route
+7. useStyles as object
+8. materialUI / themeConfig
+9. firebase token checker
+10. github to gitlab

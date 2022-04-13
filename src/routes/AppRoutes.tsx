@@ -1,10 +1,10 @@
-import {FC, Suspense} from 'react';
-import {Route, Routes} from 'react-router';
-import {Layout} from 'layouts/Layout';
-import {IAppRoutesProps} from 'types/types';
-import {getBudgetState} from 'contexts/BudgetContext';
+import { FC, Suspense } from 'react';
+import { Route, Routes } from 'react-router';
+import { IAppRoutesProps } from 'types/types';
+import { getBudgetState } from 'contexts/BudgetContext';
+import Layout from 'layouts/Layout';
 
-export const AppRoutes : FC<IAppRoutesProps> = ({routes}) => {
+const AppRoutes : FC<IAppRoutesProps> = ({routes}) => {
   const budgetState = getBudgetState();
   return (
     <Suspense fallback={<h3>Loading...</h3>}>
@@ -26,6 +26,7 @@ export const AppRoutes : FC<IAppRoutesProps> = ({routes}) => {
         })}
       </Routes>
     </Suspense>
-
   );
 };
+
+export default AppRoutes;

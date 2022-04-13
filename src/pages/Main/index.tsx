@@ -1,8 +1,10 @@
-import {AppRoutes} from 'routes/AppRoutes';
-import {routes} from 'routes/routesList';
+import { routes } from 'routes/routesList';
+import AppRoutes from 'routes/AppRoutes';
 
-export const Main = () => {
+const Main = () => {
   return (
     <AppRoutes routes={routes}/>
   );
 };
+
+export default Main;

@@ -1,9 +1,9 @@
-import {BrowserRouter} from 'react-router-dom';
-import {CssBaseline} from '@mui/material';
-import {BudgetContext} from 'contexts/BudgetContext';
-import {Main} from 'pages/Main';
+import { BrowserRouter } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
+import { BudgetContext } from 'contexts/BudgetContext';
+import Main from 'pages/Main';
 
-export const App = () => {
+const App = () => {
   return (
     <CssBaseline>
       <BudgetContext>
@@ -15,3 +15,4 @@ export const App = () => {
   );
 };
 
+export default App;

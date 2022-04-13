@@ -6,7 +6,7 @@
 **_Budget Control System_** - is a solution to count your spends,
 ReactJS-powered single page application
 
-- Create your own accaunt
+- Create your own account
 - White down your spends and it's price
 - See summary of your spends and start to save your money!!!
 
@@ -24,7 +24,7 @@ Budget Control System uses a number of open source projects to work properly:
 - [React JS] - JS library for creating user interfaces!
 - [VS Code] - awesome text editor
 - [Material UI] - great UI boilerplate for modern web apps
-- [Node.js] - evented I/O for the backend
+- [Node.js] - I/O for the backend
 - [Firebase] - Backed by Google
 
 And of course Budget Control System website is open source with a [public repository](https://github.com/TiredTorch/budget-system)

@@ -2,7 +2,7 @@ import {Typography} from '@mui/material';
 import {Box} from '@mui/system';
 import i18next from 'i18n';
 
-export const Header = () => {
+const Header = () => {
   return (
     <Box
       sx={{
@@ -19,3 +19,5 @@ export const Header = () => {
     </Box>
   );
 };
+
+export default Header;
