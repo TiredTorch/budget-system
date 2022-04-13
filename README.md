@@ -19,7 +19,7 @@ ReactJS-powered single page application
 
 ## Tech
 
-Dillinger uses a number of open source projects to work properly:
+Budget Control System uses a number of open source projects to work properly:
 
 - [React JS] - JS library for creating user interfaces!
 - [VS Code] - awesome text editor
@@ -65,12 +65,6 @@ npm build
 
 MIT
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
    [VS Code]: <https://code.visualstudio.com/>
    [node.js]: <http://nodejs.org>
    [Material UI]: <https://mui.com/>
