@@ -1,8 +1,10 @@
 import {FC} from 'react';
-import {Box, Button, Card, TextField, Typography} from '@mui/material';
+import {Box, Button, Card, Typography} from '@mui/material';
 import {useFormik} from 'formik';
 import {IHomePageProps} from '../../../types/types';
 import {HomeCard} from './HomeCard/HomeCard';
+import {BodyBox} from 'components/common/BodyBox/BodyBox';
+import {UserInputs} from 'components/common/UserInputs/UserInputs';
 
 export const Home: FC<IHomePageProps> = (
     {
@@ -22,18 +24,8 @@ export const Home: FC<IHomePageProps> = (
   });
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-
-        border: '.5vh solid yellowgreen',
-        bgcolor: 'lightgoldenrodyellow',
-        maxWidth: '80vw',
-        m: '5vh 10vw',
-        p: '1vh 1vw',
-      }}
+    <BodyBox
+      type={'large'}
     >
       <Typography
         align='center'
@@ -66,50 +58,21 @@ export const Home: FC<IHomePageProps> = (
               justifyContent: 'space-evenly',
             }}
           >
-            <TextField
-              value={formik.values.spendItem}
-              onChange={formik.handleChange}
-              name='spendItem'
-              id='spendItem'
-              color='success'
-              label='What did you bought'
-              variant='standard'
-              inputProps={{style: {
-                fontSize: '1.5vmax',
-              }}}
-              InputLabelProps={{style: {fontSize: '1.5vmax'}}}
-              sx={{
-                minWidth: '40%',
-                m: '2vh 0',
-              }}
-            />
-            <TextField
-              value={formik.values.spendCost}
-              onChange={formik.handleChange}
-              color='success'
-              id='spendCost'
-              name='spendCost'
-              label='How much is it?'
-              type='number'
-              variant='standard'
-              inputProps={{style: {
-                fontSize: '1.5vmax',
-              }}}
-              InputLabelProps={{style: {fontSize: '1.5vmax'}}}
-              sx={{
-                minWidth: '40%',
-                m: '2vh 0',
-                'input[type=number]::-webkit-outer-spin-button': {
-                  WebkitAppearance: 'none',
-                  margin: '0',
-                },
-                'input[type=number]::-webkit-inner-spin-button': {
-                  WebkitAppearance: 'none',
-                  margin: '0',
-                },
 
-              }}
+            <UserInputs
+              formik={formik}
+              name={'spendItem'}
+              type={'text'}
+              label={'What did you bought'}
             />
+
+            <UserInputs
+              formik={formik}
+              name={'spendCost'}
+              type={'number'}
+              label={'How much is it?'}
+            />
+
           </Box>
           <Button
             type='submit'
@@ -171,6 +134,7 @@ export const Home: FC<IHomePageProps> = (
       >
         Log out
       </Button>
-    </Box>
+    </BodyBox>
+
   );
 };

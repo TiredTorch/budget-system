@@ -1,8 +1,10 @@
 import {FC} from 'react';
 import {Link} from 'react-router-dom';
-import {Box, Button, TextField, Typography} from '@mui/material';
+import {Button, Typography} from '@mui/material';
 import {useFormik} from 'formik';
 import {logupSchema} from './Logup.schema';
+import {BodyBox} from 'components/common/BodyBox/BodyBox';
+import {UserInputs} from 'components/common/UserInputs/UserInputs';
 
 export const Logup: FC<any> = ({onSubmit}): any => {
   const formik = useFormik({
@@ -16,15 +18,7 @@ export const Logup: FC<any> = ({onSubmit}): any => {
   });
 
   return (
-    <Box
-      sx={{
-        border: '.5vh solid yellowgreen',
-        bgcolor: 'lightgoldenrodyellow',
-        maxWidth: '50vw',
-        m: '5vh 25vw',
-        p: '1vh 1vw',
-      }}
-    >
+    <BodyBox type={'medium'}>
       <form onSubmit={formik.handleSubmit}>
         <Typography
           fontFamily='Lato'
@@ -35,72 +29,26 @@ export const Logup: FC<any> = ({onSubmit}): any => {
         >
         Create an account
         </Typography>
-        <TextField
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && !!formik.errors.email}
-          helperText={formik.touched.email && formik.errors.email}
-          type='email'
-          name='email'
-          id='email'
-          color='success'
-          label='Email'
-          variant='standard'
-          size='medium'
-          inputProps={{style: {
-            fontSize: '1.5vmax',
-          }}}
-          InputLabelProps={{style: {fontSize: '1.5vmax'}}}
-          sx={{
-            minWidth: '50%',
-            m: '2vh 25%',
-          }}
+
+        <UserInputs
+          formik={formik}
+          name={'email'}
+          type={'email'}
+          label={'Email'}
         />
-        <TextField
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.password && !!formik.errors.password}
-          helperText={formik.touched.password && formik.errors.password}
-          type='password'
-          id='password'
-          name='password'
-          color='success'
-          label='Password'
-          variant='standard'
-          size='medium'
-          inputProps={{style: {fontSize: '1.5vmax'}}}
-          InputLabelProps={{style: {fontSize: '1.5vmax'}}}
-          sx={{
-            minWidth: '50%',
-            m: '2vh 25%',
-          }}
+        <UserInputs
+          formik={formik}
+          name={'password'}
+          type={'password'}
+          label={'Password'}
         />
-        <TextField
-          value={formik.values.confirmPassword}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={
-            formik.touched.confirmPassword && !!formik.errors.confirmPassword
-          }
-          helperText={
-            formik.touched.confirmPassword && formik.errors.confirmPassword
-          }
-          type='password'
-          id='confirmPassword'
-          name='confirmPassword'
-          color='success'
-          label='Confirm password'
-          variant='standard'
-          size='medium'
-          inputProps={{style: {fontSize: '1.5vmax'}}}
-          InputLabelProps={{style: {fontSize: '1.5vmax'}}}
-          sx={{
-            minWidth: '50%',
-            m: '2vh 25%',
-          }}
+        <UserInputs
+          formik={formik}
+          name={'confirmPassword'}
+          type={'password'}
+          label={'Confirm password'}
         />
+
         <Button
           type='submit'
           variant='outlined'
@@ -127,6 +75,6 @@ export const Logup: FC<any> = ({onSubmit}): any => {
         Or log in, if you have an account
         </Link>
       </Typography>
-    </Box>
+    </BodyBox>
   );
 };

@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import {Box} from '@mui/material';
-import {Header} from './Header/Header';
+import {Header} from '../components/common/Header/Header';
 
 export const Layout : FC = ({children}) => {
   return (

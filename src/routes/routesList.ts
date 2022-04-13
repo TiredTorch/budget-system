@@ -1,4 +1,4 @@
-import {HomePage} from 'pages/common/HomePage';
+import {HomePage} from 'pages/HomePage';
 import {LoginPage} from 'pages/LoginPage';
 import {LogupPage} from 'pages/LogupPage';
 import {IRoute} from 'types/types';
