@@ -1,4 +1,5 @@
 import i18next from 'i18next';
+import en from './lang/en.json';
 
 i18next.init({
   lng: 'en',
@@ -6,7 +7,7 @@ i18next.init({
   resources: {
     en: {
       translation: {
-        'title': 'Budget Control System',
+        'title': en.title,
       },
     },
   },

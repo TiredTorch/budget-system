@@ -1,10 +1,10 @@
-import {render, screen, waitFor} from '@testing-library/react';
-import React, {SetStateAction} from 'react';
-import {BrowserRouter} from 'react-router-dom';
-import {Home} from './Home';
+import { render, screen, waitFor } from '@testing-library/react';
+import { SetStateAction } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
-import {ISpend} from 'types/types';
 import userEvent from '@testing-library/user-event';
+import Home from './Home';
+import { ISpend } from 'types/types';
 
 describe('Testing Home component', () => {
   test('should add new spend with proper values', async () => {

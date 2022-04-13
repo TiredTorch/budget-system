@@ -1,8 +1,7 @@
-import {render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
-import {Logup} from './Logup';
+import { BrowserRouter } from 'react-router-dom';
+import Logup from './Logup';
 
 describe('Testing Login component', () => {
   test('should render and submit login form', async () => {
