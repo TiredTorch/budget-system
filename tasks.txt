@@ -1,11 +1,11 @@
 1. Вынести фаербейс + (что в апи)
-2. 18 реакт -
+2. 18 реакт + (! mark)
 3. порядок импортов +
 4. удалить реакт из импорта +
 5. useRoutes / useRouter +
-6. materialUI / themeConfig
+6. materialUI / themeConfig ------------------------------
 7. git flow + (ненужные ветки)
 8. husky + (на основе линтера)
-9. readme.md
-10. react intl, i18-next
-11. implement ui / common / button textfield (у кнопок сильно много различного)
+9. readme.md  +
+10. react intl, i18-next---------------------------------
+11. implement ui / common / button textfield +  (у кнопок сильно много различного)
