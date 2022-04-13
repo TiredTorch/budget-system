@@ -1,5 +1,5 @@
 # Budget Control System
-### _The Last Markdown Editor, Ever_
+### _Start control your spends!!!_
 
 
 
