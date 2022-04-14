@@ -1,9 +1,8 @@
 import { FC, Suspense } from 'react';
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import { IAppRoutesProps } from 'types/types';
 import { getBudgetState } from 'contexts/BudgetContext';
 import Layout from 'layouts/Layout';
-import Redirect from 'pages/Redirect/Redirect';
 
 const AppRoutes : FC<IAppRoutesProps> = ({routes}) => {
   const budgetState = getBudgetState();
@@ -18,7 +17,7 @@ const AppRoutes : FC<IAppRoutesProps> = ({routes}) => {
                 path={route.path}
                 key={`route ${route.path}`}
                 element={
-                  <Redirect/>
+                  <Navigate to={!!budgetState?.user ? '/' : '/login'} replace/>
                 }
               />
             );
