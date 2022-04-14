@@ -1,10 +1,30 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from 'firebase/auth';
 import { useNavigate } from 'react-router';
 import { auth } from 'firebaseAPI/firebase';
 import Login from 'components/forms/Login/Login';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+
+  const handleGoogleAuth = async () => {
+    const googleProvider = new GoogleAuthProvider();
+    console.log('g0ogle auth');
+    try {
+      const data = await signInWithPopup(
+          auth,
+          googleProvider,
+      );
+      if (data) {
+        navigate('/');
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   const handleSubmit = async (values: { email: string; password: string; }) => {
     console.log(auth.currentUser);
@@ -20,7 +40,6 @@ const LoginPage = () => {
       );
       if (data) {
         navigate('/');
-        console.log(auth.currentUser);
       }
     } catch (error) {
       alert(error);
@@ -28,7 +47,7 @@ const LoginPage = () => {
   };
 
   return (
-    <Login onSubmit={handleSubmit}/>
+    <Login onSubmit={handleSubmit} googleAuth={handleGoogleAuth}/>
   );
 };
 

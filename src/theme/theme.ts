@@ -32,6 +32,8 @@ theme.typography.h5 = {
   fontFamily: theme.typography.fontFamily,
   fontSize: '1vmax',
   fontWeight: '100',
+  width: '90%',
+  margin: '1vh 0',
   display: 'flex',
   justifyContent: 'center',
 };
