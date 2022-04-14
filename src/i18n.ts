@@ -6,9 +6,7 @@ i18next.init({
   debug: true,
   resources: {
     en: {
-      translation: {
-        'title': en.title,
-      },
+      translation: en,
     },
   },
 });

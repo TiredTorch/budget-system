@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import {Button, Card, Typography} from '@mui/material';
 import {IDeleteSpendManager} from 'types/types';
+import i18next from 'i18next';
 
 const HomeCard : FC<IDeleteSpendManager> =
   ({spend, deleteSpend}) => {
@@ -21,7 +22,8 @@ const HomeCard : FC<IDeleteSpendManager> =
         <Typography
           fontSize='1.3vmax'
         >
-          {`${spend.spendItem} : ${spend.spendCost} m. u.`}
+          {`${spend.spendItem} : ${spend.spendCost} 
+          ${i18next.t('homepage.spendControl.monetaryUnits')}`}
         </Typography>
         <Button
           onClick={() => deleteSpend()}
@@ -36,7 +38,7 @@ const HomeCard : FC<IDeleteSpendManager> =
             },
           }}
         >
-        Remove Spend
+          {i18next.t('homepage.spendAction.remove')}
         </Button>
       </Card>
     );

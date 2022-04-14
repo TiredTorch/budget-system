@@ -1,3 +1,29 @@
 {
-  "title": "Budget Control System"
+  "title": "Budget Control System",
+  "login": {
+    "title": "Log in your account",
+    "button": "Sign in",
+    "register": "Or create it, if you dont have an account"
+  },
+  "register": {
+    "title": "Create an account",
+    "button": "Sign up",
+    "login": "Or create it, if you dont have an account"
+  },
+  "homepage":{
+    "title": "Page of ",
+    "logoutButton": "Log out",
+    "spendControl": {
+      "title": "Add some of yours spends",
+      "spendItemLabel": "What did you bought",
+      "spendCostLabel": "How much is it?",
+      "spendAmount": "Your current spends: ",
+      "emptySpendList": "Your spends list is empty",
+      "monetaryUnits": "m. u."
+    },
+    "spendAction": {
+      "add": "Add spend",
+      "remove": "Remove spend"
+    }
+  }
 }

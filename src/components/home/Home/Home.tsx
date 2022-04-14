@@ -5,6 +5,7 @@ import {IHomePageProps} from '../../../types/types';
 import HomeCard from './HomeCard/HomeCard';
 import BodyBox from 'components/common/BodyBox/BodyBox';
 import Input from 'components/common/UserInputs/Input';
+import i18next from 'i18next';
 
 const Home: FC<IHomePageProps> = (
     {
@@ -34,7 +35,7 @@ const Home: FC<IHomePageProps> = (
           minWidth: '90vw',
         }}
       >
-        Page of {budgetState?.user?.email}
+        {i18next.t('homepage.title')} {budgetState?.user?.email}
       </Typography>
       <Card
         sx={{
@@ -48,7 +49,7 @@ const Home: FC<IHomePageProps> = (
           align='center'
           fontSize='3vmax'
         >
-          Add some of yours spends
+          {i18next.t('homepage.spendControl.title')}
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Box
@@ -63,14 +64,14 @@ const Home: FC<IHomePageProps> = (
               formik={formik}
               name={'spendItem'}
               type={'text'}
-              label={'What did you bought'}
+              label={i18next.t('homepage.spendControl.spendItemLabel')}
             />
 
             <Input
               formik={formik}
               name={'spendCost'}
               type={'number'}
-              label={'How much is it?'}
+              label={i18next.t('homepage.spendControl.spendCostLabel')}
             />
 
           </Box>
@@ -90,7 +91,7 @@ const Home: FC<IHomePageProps> = (
               },
             }}
           >
-          Add spend
+            {i18next.t('homepage.spendAction.add')}
           </Button>
         </form>
       </Card>
@@ -102,10 +103,10 @@ const Home: FC<IHomePageProps> = (
         }}
       >
         {!!spends.length ?
-        `Your current spends: ${spends.reduce(
+        `${i18next.t('homepage.spendControl.spendAmount')} ${spends.reduce(
             (acc, state) => acc + state.spendCost, 0,
         )}` :
-        'Your spends list is empty'}
+        i18next.t('homepage.spendControl.emptySpendList')}
       </Typography>
       {spends.map((curSpend) => {
         return (
@@ -132,7 +133,7 @@ const Home: FC<IHomePageProps> = (
           },
         }}
       >
-        Log out
+        {i18next.t('homepage.logoutButton')}
       </Button>
     </BodyBox>
 

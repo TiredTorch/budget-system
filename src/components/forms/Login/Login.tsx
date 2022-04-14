@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import loginSchema from './Login.schema';
 import BodyBox from 'components/common/BodyBox/BodyBox';
 import Input from 'components/common/UserInputs/Input';
+import i18next from 'i18n';
 
 const Login: FC<any> = ({onSubmit}): any => {
   const formik = useFormik({
@@ -29,7 +30,7 @@ const Login: FC<any> = ({onSubmit}): any => {
             fontWeight='700'
             m='2vh 0'
           >
-            Log in your account
+            {i18next.t('login.title')}
           </Typography>
 
           <Input
@@ -59,7 +60,7 @@ const Login: FC<any> = ({onSubmit}): any => {
               },
             }}
           >
-            Sign in
+            {i18next.t('login.button')}
           </Button>
         </form>
       }
@@ -68,7 +69,7 @@ const Login: FC<any> = ({onSubmit}): any => {
         align='center'
       >
         <Link to='/register'>
-          Or create it, if you dont have an account
+          {i18next.t('login.register')}
         </Link>
       </Typography>
     </BodyBox>
