@@ -3,7 +3,8 @@
   "login": {
     "title": "Log in your account",
     "button": "Sign in",
-    "register": "Or create it, if you dont have an account"
+    "register": "Or create it, if you dont have an account",
+    "google": "Or log in with google"
   },
   "register": {
     "title": "Create an account",

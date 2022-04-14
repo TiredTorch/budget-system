@@ -7,7 +7,7 @@ import BodyBox from 'components/common/BodyBox/BodyBox';
 import Input from 'components/common/UserInputs/Input';
 import i18next from 'i18n';
 
-const Login: FC<any> = ({onSubmit}): any => {
+const Login: FC<any> = ({onSubmit, googleAuth}): any => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -49,6 +49,11 @@ const Login: FC<any> = ({onSubmit}): any => {
         <Link to='/register'>
           {i18next.t('login.register')}
         </Link>
+      </Typography>
+      <Typography variant='h5'>
+        <a href="#" onClick={googleAuth}>
+          {i18next.t('login.google')}
+        </a>
       </Typography>
     </BodyBox>
   );
