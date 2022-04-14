@@ -23,14 +23,9 @@ const Input : FC<InputProps> =
         type={type}
         name={name}
         id={name}
-        color='success'
         label={label}
+        color= 'success'
         variant='standard'
-        size='medium'
-        inputProps={{style: {
-          fontSize: '1.5vmax',
-        }}}
-        InputLabelProps={{style: {fontSize: '1.5vmax'}}}
         sx={{
           minWidth: '50%',
           m: '2vh 25%',

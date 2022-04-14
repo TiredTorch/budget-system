@@ -19,15 +19,9 @@ const Logup: FC<any> = ({onSubmit}): any => {
   });
 
   return (
-    <BodyBox type={'medium'}>
+    <BodyBox>
       <form onSubmit={formik.handleSubmit}>
-        <Typography
-          fontFamily='Lato'
-          align='center'
-          fontSize='2.5vmax'
-          fontWeight='700'
-          m='2vh 0'
-        >
+        <Typography variant='h2'>
           {i18next.t('register.title')}
         </Typography>
 
@@ -53,25 +47,11 @@ const Logup: FC<any> = ({onSubmit}): any => {
         <Button
           type='submit'
           variant='outlined'
-          sx={{
-            border: '1px solid black',
-            minWidth: '30%',
-            m: '5vh 35%',
-            fontSize: '1.5vmax',
-            color: 'black',
-            '&:hover': {
-              border: '1px solid green',
-              color: 'green',
-            },
-          }}
         >
           {i18next.t('register.button')}
         </Button>
       </form>
-      <Typography
-        fontSize='1vmax'
-        align='center'
-      >
+      <Typography variant='h5'>
         <Link to='/login'>
           {i18next.t('register.login')}
         </Link>

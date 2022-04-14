@@ -25,30 +25,16 @@ const Home: FC<IHomePageProps> = (
   });
 
   return (
-    <BodyBox
-      type={'large'}
-    >
-      <Typography
-        align='center'
-        fontSize='3vmax'
-        sx={{
-          minWidth: '90vw',
-        }}
-      >
+    <BodyBox type={'large'}>
+      <Typography variant='h2' align='center'>
         {i18next.t('homepage.title')} {budgetState?.user?.email}
       </Typography>
       <Card
         sx={{
-          minWidth: '75%',
-          m: '3vh 0',
-          p: '1vh 1vw',
           bgcolor: 'yellowgreen',
         }}
       >
-        <Typography
-          align='center'
-          fontSize='3vmax'
-        >
+        <Typography variant='h4' >
           {i18next.t('homepage.spendControl.title')}
         </Typography>
         <form onSubmit={formik.handleSubmit}>
@@ -80,28 +66,14 @@ const Home: FC<IHomePageProps> = (
             variant='outlined'
             sx={{
               fontSize: '1.2vmax',
-              m: '2vh 20%',
-              minWidth: '60%',
-              border: '1px solid black',
-              color: 'black',
               fontWeight: '700',
-              '&:hover': {
-                border: '1px solid green',
-
-              },
             }}
           >
             {i18next.t('homepage.spendAction.add')}
           </Button>
         </form>
       </Card>
-      <Typography
-        fontSize='3vmax'
-        align='center'
-        sx={{
-          minWidth: '100%',
-        }}
-      >
+      <Typography variant='h4'>
         {!!spends.length ?
         `${i18next.t('homepage.spendControl.spendAmount')} ${spends.reduce(
             (acc, state) => acc + state.spendCost, 0,
@@ -120,18 +92,6 @@ const Home: FC<IHomePageProps> = (
       <Button
         onClick={logOut}
         variant='outlined'
-        sx={{
-          fontSize: '2vmax',
-          minWidth: '60%',
-          m: '3vh 20%',
-          border: '1px solid black',
-          color: 'black',
-          fontWeight: '700',
-          '&:hover': {
-            border: '1px solid green',
-
-          },
-        }}
       >
         {i18next.t('homepage.logoutButton')}
       </Button>

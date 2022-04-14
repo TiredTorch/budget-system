@@ -12,11 +12,11 @@
 
 1. default export  +++
 2. удалить ветки  +++
-3. rewrite static text
+3. rewrite static text  +++
 4. format  +++
 5. import textfield as NOTinput +++
 6. redirect route  +++
-7. useStyles as object
-8. materialUI / themeConfig
+7. useStyles as object  +++
+8. materialUI / themeConfig (свои варианты)
 9. firebase token checker
 10. github to gitlab  +++
