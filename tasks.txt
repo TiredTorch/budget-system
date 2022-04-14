@@ -17,6 +17,6 @@
 5. import textfield as NOTinput +++
 6. redirect route  +++
 7. useStyles as object  +++
-8. materialUI / themeConfig (свои варианты)
+8. materialUI / themeConfig (свои варианты)  +++
 9. firebase token checker
 10. github to gitlab  +++

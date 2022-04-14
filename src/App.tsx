@@ -6,15 +6,15 @@ import theme from 'theme/theme';
 
 const App = () => {
   return (
-    <CssBaseline>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
         <BudgetContext>
           <BrowserRouter>
             <Main/>
           </BrowserRouter>
         </BudgetContext>
-      </ThemeProvider>
-    </CssBaseline>
+      </CssBaseline>
+    </ThemeProvider>
   );
 };
 

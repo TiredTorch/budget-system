@@ -37,6 +37,13 @@ theme.typography.h5 = {
 };
 
 theme.components = {
+  MuiCssBaseline: {
+    styleOverrides: {
+      html: {
+        overflowX: 'hidden',
+      },
+    },
+  },
   MuiInput: {
     styleOverrides: {
       root: {
@@ -103,7 +110,7 @@ theme.components = {
     styleOverrides: {
       root: {
         position: 'static',
-        width: '99vw',
+        width: '100vw',
         minHeight: '5vh',
         background: 'yellowgreen',
         padding: '1vh 0',
