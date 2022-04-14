@@ -1,9 +1,9 @@
+import { Card } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
-import { Box } from '@mui/system';
 
 type BodyBoxProps = {
   children: React.ReactNode
-  type: string
+  type?: string
 }
 
 const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
@@ -33,22 +33,14 @@ const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
 
 
   return (
-    <Box
+    <Card
       sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-
-        border: '.5vh solid yellowgreen',
-        bgcolor: 'lightgoldenrodyellow',
         maxWidth: `${personalStyle.maxWidth}`,
         m: `${personalStyle.margin}`,
-        p: '1vh 1vw',
-
       }}
     >
       {children}
-    </Box>
+    </Card>
   );
 };
 
