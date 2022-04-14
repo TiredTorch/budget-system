@@ -9,6 +9,7 @@
 
 # production
 /build
+/.firebase
 
 # misc
 .tasks.txt
@@ -22,3 +23,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.vscode
+tasks.txt
