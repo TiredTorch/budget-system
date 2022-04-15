@@ -19,32 +19,32 @@ const Login: FC<any> = ({onSubmit, googleAuth}): any => {
 
   return (
     <BodyBox>
-      {
-        <form onSubmit={formik.handleSubmit}>
-          <Typography variant='h2'>
-            {i18next.t('login.title')}
-          </Typography>
 
-          <Input
-            formik={formik}
-            name={'email'}
-            type={'email'}
-            label={'Email'}
-          />
-          <Input
-            formik={formik}
-            name={'password'}
-            type={'password'}
-            label={'Password'}
-          />
-          <Button
-            type='submit'
-            variant='outlined'
-          >
-            {i18next.t('login.button')}
-          </Button>
-        </form>
-      }
+      <form onSubmit={formik.handleSubmit}>
+        <Typography variant='h2'>
+          {i18next.t('login.title')}
+        </Typography>
+
+        <Input
+          formik={formik}
+          name={'email'}
+          type={'email'}
+          label={'Email'}
+        />
+        <Input
+          formik={formik}
+          name={'password'}
+          type={'password'}
+          label={'Password'}
+        />
+        <Button
+          type='submit'
+          variant='outlined'
+        >
+          {i18next.t('login.button')}
+        </Button>
+      </form>
+
       <Typography variant='h5'>
         <Link to='/register'>
           {i18next.t('login.register')}
