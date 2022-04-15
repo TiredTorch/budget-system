@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import React, {FC} from 'react';
 import {Box, Button, Card, styled, Typography} from '@mui/material';
 import {useFormik} from 'formik';
 import {IHomePageProps} from '../../../types/types';
@@ -8,6 +8,23 @@ import Input from 'components/common/UserInputs/Input';
 import i18next from 'i18next';
 import theme from 'theme/newTheme';
 
+/**
+ * Component for user's homepage. Contains list of user's
+ * spends and method to add or remove them
+ *
+ * @param {IBudgetContextProps} budgetState State from
+ * Budget Context
+ * @param {Function} logOut Method to log out of user's
+ * account
+ * @param {Function} addSpend Method to add some spend to
+ * user's list
+ * @param {Function} deleteSpend Method to delete some spend
+ * from user's list
+ * @param {Object} spendManager Object that contains list of
+ * users spends and dispatcher for it
+ *
+ * @return {React.ReactNode} Component for user's homepage
+ */
 const Home: FC<IHomePageProps> = (
     {
       budgetState,

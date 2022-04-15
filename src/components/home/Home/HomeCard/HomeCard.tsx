@@ -3,6 +3,15 @@ import {Button, Card, styled, Typography} from '@mui/material';
 import {IDeleteSpendManager} from 'types/types';
 import i18next from 'i18next';
 
+/**
+ * Card that depict one of user spends
+ *
+ * @param {ISpend} spend Object that contains some stuff and
+ * how much user did spend on this
+ * @param {Function} deleteSpend Function to delete current card
+ * @return {React.ReactNode} Card-element for home component to
+ * contain and show users spends
+ */
 const HomeCard : FC<IDeleteSpendManager> =
   ({spend, deleteSpend}) => {
     const StyledHomeCard = styled(Card)(({ theme }) => ({

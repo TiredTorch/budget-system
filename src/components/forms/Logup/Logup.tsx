@@ -7,6 +7,15 @@ import BodyBox from 'components/common/BodyBox/BodyBox';
 import Input from 'components/common/UserInputs/Input';
 import i18next from 'i18next';
 
+/**
+ * Component for register account page
+ * @component
+ *
+ * @param {Function} onSubmit Method that tries to register user
+ * with credentials from inputs
+ *
+ * @return {React.ReactNode} Component to register user
+ */
 const Logup: FC<any> = ({onSubmit}): any => {
   const formik = useFormik({
     initialValues: {
@@ -19,7 +28,7 @@ const Logup: FC<any> = ({onSubmit}): any => {
   });
 
   return (
-    <BodyBox>
+    <BodyBox type={'medium'}>
       <form onSubmit={formik.handleSubmit}>
         <Typography variant='h2'>
           {i18next.t('register.title')}

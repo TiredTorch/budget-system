@@ -10,6 +10,9 @@ import Login from 'components/forms/Login/Login';
 const LoginPage = () => {
   const navigate = useNavigate();
 
+  /**
+   * Method to log in via google
+   */
   const handleGoogleAuth = async () => {
     const googleProvider = new GoogleAuthProvider();
     console.log('g0ogle auth');
@@ -26,6 +29,10 @@ const LoginPage = () => {
     }
   };
 
+  /**
+   * Method to log in via email and password
+   * @param {Object} values Object with email and password of user
+   */
   const handleSubmit = async (values: { email: string; password: string; }) => {
     try {
       if (!values.email || !values.password) {
