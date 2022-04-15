@@ -19,6 +19,12 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
+  /**
+   * Method to add user's spend
+   * @param {ISpend} values Spends, that will be tried to add
+   * to user's database
+   * @return {Function} Method to add spend to user's database
+   */
   const handleAddSpend = async (values: any) => {
     try {
       if (!values.spendItem || !values.spendCost) {
@@ -44,6 +50,12 @@ const HomePage = () => {
     }
   };
 
+  /**
+   * Method to remove user's spend
+   * @param {ISpend} spend Spends, that will be tried to remove
+   * from user's database
+   * @return {Function} Method to remove spend from user's database
+   */
   const handleDeleteSpend = async (spend:ISpend) => {
     try {
       const spendsRef = doc(db, 'spends', `${budgetState?.user?.uid}`);
@@ -59,6 +71,9 @@ const HomePage = () => {
     }
   };
 
+  /**
+   * Method to log out of current account
+   */
   const handleLogOut = () => {
     signOut(auth).then(() => navigate('/login'));
   };

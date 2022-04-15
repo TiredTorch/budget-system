@@ -7,6 +7,17 @@ import BodyBox from 'components/common/BodyBox/BodyBox';
 import Input from 'components/common/UserInputs/Input';
 import i18next from 'i18n';
 
+/**
+ * Component for log in account page
+ * @component
+ *
+ * @param {Function} onSubmit Method that tries to log
+ * in with credentials from inputs
+ * @param {Function} googleAuth Method that tries to log
+ * in with google auth
+ *
+ * @return {React.ReactNode} Component to log in
+ */
 const Login: FC<any> = ({onSubmit, googleAuth}): any => {
   const formik = useFormik({
     initialValues: {
@@ -18,7 +29,7 @@ const Login: FC<any> = ({onSubmit, googleAuth}): any => {
   });
 
   return (
-    <BodyBox>
+    <BodyBox type={'medium'}>
 
       <form onSubmit={formik.handleSubmit}>
         <Typography variant='h2'>

@@ -11,8 +11,13 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
-
+/**
+ * Variable that contains authenticated user data
+ */
 export let auth : Auth;
+/**
+ * Variable that contains personal user database
+ */
 export let db : Firestore;
 
 if (!firebase.apps.length) {

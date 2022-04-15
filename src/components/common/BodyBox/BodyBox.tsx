@@ -4,9 +4,20 @@ import theme from 'theme/newTheme';
 
 type BodyBoxProps = {
   children: React.ReactNode
-  type?: string
+  type: 'medium' | 'large'
 }
 
+/**
+ * Returns section wrapper for other components
+ * @component
+ *
+ *
+ * @param {React.ReactNode} children Child component
+ * @param {'medium' | 'large'} type Size of component ('medium' or 'large')
+ *
+ *
+ * @return {React.ReactNode} Component, section wrapper for other components
+ */
 const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
   const [personalStyle, setPersonalStyle] = useState({
     margin: '5vh 25vw',

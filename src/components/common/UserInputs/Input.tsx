@@ -9,6 +9,18 @@ type InputProps = {
   label: string
 }
 
+/**
+ *Returns input field to work with form
+ * @component
+ *
+ * @param {FormikValues} formik UseFormik hook, that contains initial values,
+ * validation schema and onSubmit method
+ * @param {string} name Name of input variable
+ * @param {string} type type of input field
+ * @param {string} label Label, that depict variable
+ *
+ * @return {React.ReactNode} Input field that interact with form from props
+ */
 const Input : FC<InputProps> =
   ({formik, name, type, label}) => {
     return (

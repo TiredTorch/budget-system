@@ -13,6 +13,11 @@ import { auth, db } from 'firebaseAPI/firebase';
 
 const Budget = createContext<IBudgetContextProps | null>(null);
 
+/**
+ * Context to manage user's personal data and spends info.
+ * @param {React.ReactNode} children Context consumers
+ * @return {React.ReactNode} Context with user's budget data
+ */
 export const BudgetContext : FC<ReactNode> = ({children}) => {
   const [user, setUser] = useState<User>();
   const [spends, setSpends] = useState<Array<ISpend>>();
@@ -51,6 +56,10 @@ export const BudgetContext : FC<ReactNode> = ({children}) => {
   );
 };
 
+/**
+ * Budget data getter
+ * @return {Function} Budget data
+ */
 export const getBudgetState = () => {
   return useContext(Budget);
 };

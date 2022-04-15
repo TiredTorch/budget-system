@@ -6,6 +6,10 @@ import Logup from 'components/forms/Logup/Logup';
 const LogupPage = () => {
   const navigate = useNavigate();
 
+  /**
+   * Method to log up via email and password
+   * @param {Object} values Object with email and password of user
+   */
   const handleSubmit = async (
       values: { password: string; confirmPassword: any; email: string; },
   ) => {
