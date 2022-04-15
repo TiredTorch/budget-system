@@ -27,8 +27,8 @@ const Input : FC<InputProps> =
         color= 'success'
         variant='standard'
         sx={{
-          minWidth: '50%',
-          m: '2vh 25%',
+          width: '50%',
+          margin: '2vh 25%',
         }}
       />
     );

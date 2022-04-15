@@ -1,13 +1,23 @@
-import {AppBar, Typography} from '@mui/material';
+import {AppBar, styled, Typography} from '@mui/material';
 import i18next from 'i18n';
 
 const Header = () => {
+  const StyledHeader = styled(AppBar)(({ theme }) => ({
+    color: theme.palette.secondary.main,
+    minHeight: '6vmax',
+  }));
+
+  const StyledHeaderTitle = styled(Typography)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+  }));
+
   return (
-    <AppBar>
-      <Typography align='center' variant='h1'>
+    <StyledHeader>
+      <StyledHeaderTitle variant='h1'>
         {i18next.t('title')}
-      </Typography>
-    </AppBar>
+      </StyledHeaderTitle>
+    </StyledHeader>
   );
 };
 

@@ -8,7 +8,9 @@ const Layout : FC = ({children}) => {
       sx={{
         minHeight: '100vh',
         p: '0 0 2vh 0',
-        bgcolor: 'lightgray',
+        background: `url(https://i.pinimg.com/originals/b9/1e/f6/b91ef686bde789f0b4540468c07e5a0b.jpg)`,
+        backgroundPosition: 'center center',
+        backgroundAttachment: 'fixed',
       }}
     >
       <Header/>
