@@ -6,6 +6,7 @@ import HomeCard from './HomeCard/HomeCard';
 import BodyBox from 'components/common/BodyBox/BodyBox';
 import Input from 'components/common/UserInputs/Input';
 import i18next from 'i18next';
+import theme from 'theme/newTheme';
 
 const Home: FC<IHomePageProps> = (
     {
@@ -33,15 +34,17 @@ const Home: FC<IHomePageProps> = (
 
   return (
     <BodyBox type={'large'}>
-      <Typography variant='h2' align='center'>
+      <Typography variant='h1'>
         {i18next.t('homepage.title')} {budgetState?.user?.email}
       </Typography>
       <Card
         sx={{
-          bgcolor: 'yellowgreen',
+          marginTop: '3vmin',
+          bgcolor: theme.palette.secondary.main,
+          border: `.4vmin solid ${theme.palette.primary.dark}`,
         }}
       >
-        <Typography variant='h4' >
+        <Typography variant='h2' >
           {i18next.t('homepage.spendControl.title')}
         </Typography>
         <form onSubmit={formik.handleSubmit}>
@@ -80,7 +83,7 @@ const Home: FC<IHomePageProps> = (
           </Button>
         </form>
       </Card>
-      <Typography variant='h4'>
+      <Typography variant='h2'>
         {!!spends.length ?
         `${i18next.t('homepage.spendControl.spendAmount')} ${spends.reduce(
             (acc, state) => acc + state.spendCost, 0,

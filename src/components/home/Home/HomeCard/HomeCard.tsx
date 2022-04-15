@@ -11,16 +11,22 @@ const HomeCard : FC<IDeleteSpendManager> =
       margin: '3vmin',
       padding: '4vmin',
       background: theme.palette.primary.light,
+      border: `1px solid ${theme.palette.primary.dark}`,
     }));
     const StyledHomeButton = styled(Button)(({ theme }) => ({
       fontSize: '1.5vmin',
       fontWeight: '700',
       margin: '0 0 0 2vmin',
+      color: 'lightgray',
+      '&:hover': {
+        color: 'white',
+      },
     }));
     return (
       <StyledHomeCard >
         <Typography
           fontSize='1.3vmax'
+          color='white'
         >
           {spend.spendItem} : {spend.spendCost}
           {i18next.t('homepage.spendControl.monetaryUnits')}

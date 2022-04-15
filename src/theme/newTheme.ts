@@ -2,13 +2,17 @@ import { createTheme } from '@mui/material';
 
 const theme = createTheme({
   palette: {
+    background: {
+      default: 'lightgray',
+    },
     primary: {
-      main: '#df487f',
-      light: '#9f3e72',
+      main: '#004d40',
+      dark: '#00352c',
+      light: '#337066',
     },
     secondary: {
-      main: '#880e4f',
-      light: '#f6a5c0',
+      main: '#26a69a',
+      light: '#51b7ae',
     },
   },
   typography: {
@@ -23,11 +27,12 @@ theme.typography.h1 = {
 };
 
 theme.typography.h2 = {
+  color: theme.palette.primary.main,
+  fontWeight: '700',
   textAlign: 'center',
   fontStyle: 'italic',
   fontFamily: theme.typography.fontFamily,
   fontSize: '6vmin',
-  fontWeight: '300',
 };
 
 theme.typography.h5 = {
@@ -44,7 +49,7 @@ theme.typography.h5 = {
 
     '&:hover': {
       transition: '.5s all',
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.main,
     },
   },
 };
@@ -70,14 +75,18 @@ theme.components = {
     styleOverrides: {
       root: {
         padding: '1vh 0',
-        fontSize: '4vmin',
+        fontSize: '3.6vmin',
+        color: theme.palette.primary.main,
+        fontWeight: '700',
       },
     },
   },
   MuiInputLabel: {
     styleOverrides: {
       root: {
-        fontSize: '4vmin',
+        fontSize: '3.6vmin',
+        color: theme.palette.primary.main,
+        fontWeight: '700',
       },
     },
   },
@@ -90,10 +99,11 @@ theme.components = {
           minWidth: '30%',
           margin: '5vh 35%',
           fontSize: '3vmin',
-          color: 'black',
+          color: theme.palette.primary.main,
+          fontWeight: '700',
           '&:hover': {
-            border: `1px solid ${theme.palette.secondary.main}`,
-            color: theme.palette.secondary.main,
+            border: `1px solid ${theme.palette.primary.dark}`,
+            color: theme.palette.primary.dark,
           },
         },
       },
@@ -102,7 +112,7 @@ theme.components = {
   MuiAppBar: {
     styleOverrides: {
       root: {
-        position: 'static',
+        position: 'sticky',
       },
     },
   },

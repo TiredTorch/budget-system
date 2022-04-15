@@ -42,6 +42,8 @@ const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
         alignItems: 'center',
         background: theme.palette.secondary.light,
         boxShadow: '1px 1px 10px 1px',
+        padding: '4vmin 0',
+        opacity: '.93',
 
         maxWidth: `${personalStyle.maxWidth}`,
         margin: `${personalStyle.margin}`,
