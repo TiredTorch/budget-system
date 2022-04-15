@@ -1,5 +1,6 @@
 import { Card } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
+import theme from 'theme/newTheme';
 
 type BodyBoxProps = {
   children: React.ReactNode
@@ -35,6 +36,13 @@ const BodyBox : FC<BodyBoxProps> = ({children, type}) => {
   return (
     <Card
       sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        background: theme.palette.secondary.light,
+        boxShadow: '1px 1px 10px 1px',
+
         maxWidth: `${personalStyle.maxWidth}`,
         m: `${personalStyle.margin}`,
       }}
