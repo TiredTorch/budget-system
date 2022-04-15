@@ -4,6 +4,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#df487f',
+      light: '#9f3e72',
     },
     secondary: {
       main: '#880e4f',
@@ -17,7 +18,7 @@ const theme = createTheme({
 
 theme.typography.h1 = {
   fontFamily: theme.typography.fontFamily,
-  fontSize: '4vmax',
+  fontSize: '8vmin',
   fontWeight: '700',
 };
 
@@ -25,13 +26,13 @@ theme.typography.h2 = {
   textAlign: 'center',
   fontStyle: 'italic',
   fontFamily: theme.typography.fontFamily,
-  fontSize: '3vmax',
+  fontSize: '6vmin',
   fontWeight: '300',
 };
 
 theme.typography.h5 = {
   fontFamily: theme.typography.fontFamily,
-  fontSize: '1.5vmax',
+  fontSize: '3vmin',
   fontWeight: '100',
   width: '90%',
   margin: '1vh 0',
@@ -53,9 +54,7 @@ theme.components = {
   MuiCssBaseline: {
     styleOverrides: {
       root: {
-        'input:-webkit-autofill': {
-          '-webkit-text-fill-color': 'black !important',
-        },
+
       },
     },
   },
@@ -63,7 +62,7 @@ theme.components = {
     styleOverrides: {
       root: {
         padding: '1vh 0',
-        fontSize: '1vmax',
+        fontSize: '2vmin',
       },
     },
   },
@@ -71,14 +70,14 @@ theme.components = {
     styleOverrides: {
       root: {
         padding: '1vh 0',
-        fontSize: '2vmax',
+        fontSize: '4vmin',
       },
     },
   },
   MuiInputLabel: {
     styleOverrides: {
       root: {
-        fontSize: '2vmax',
+        fontSize: '4vmin',
       },
     },
   },
@@ -90,7 +89,7 @@ theme.components = {
           border: '1px solid black',
           minWidth: '30%',
           margin: '5vh 35%',
-          fontSize: '1.3vmax',
+          fontSize: '3vmin',
           color: 'black',
           '&:hover': {
             border: `1px solid ${theme.palette.secondary.main}`,

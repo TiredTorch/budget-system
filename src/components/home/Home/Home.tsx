@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {Box, Button, Card, Typography} from '@mui/material';
+import {Box, Button, Card, styled, Typography} from '@mui/material';
 import {useFormik} from 'formik';
 import {IHomePageProps} from '../../../types/types';
 import HomeCard from './HomeCard/HomeCard';
@@ -16,6 +16,13 @@ const Home: FC<IHomePageProps> = (
       spendManager: {spends, setSpends},
     },
 ) => {
+  const HomeCardWrapper = styled(Box)({
+    width: '90%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+  });
+
   const formik = useFormik({
     initialValues: {
       spendItem: '',
@@ -80,15 +87,17 @@ const Home: FC<IHomePageProps> = (
         )}` :
         i18next.t('homepage.spendControl.emptySpendList')}
       </Typography>
-      {spends.map((curSpend) => {
-        return (
-          <HomeCard
-            key={`spend: ${curSpend.spendItem}`}
-            spend={curSpend}
-            deleteSpend={() => deleteSpend(curSpend)}
-          />
-        );
-      })}
+      <HomeCardWrapper>
+        {spends.map((curSpend) => {
+          return (
+            <HomeCard
+              key={`spend: ${curSpend.spendItem}`}
+              spend={curSpend}
+              deleteSpend={() => deleteSpend(curSpend)}
+            />
+          );
+        })}
+      </HomeCardWrapper>
       <Button
         onClick={logOut}
         variant='outlined'

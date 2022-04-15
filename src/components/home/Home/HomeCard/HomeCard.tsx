@@ -1,33 +1,39 @@
 import {FC} from 'react';
-import {Button, Card, Typography} from '@mui/material';
+import {Button, Card, styled, Typography} from '@mui/material';
 import {IDeleteSpendManager} from 'types/types';
 import i18next from 'i18next';
 
 const HomeCard : FC<IDeleteSpendManager> =
   ({spend, deleteSpend}) => {
+    const StyledHomeCard = styled(Card)(({ theme }) => ({
+      display: 'flex',
+      justifyContent: 'space-between',
+      margin: '3vmin',
+      padding: '4vmin',
+      background: theme.palette.primary.light,
+    }));
+    const StyledHomeButton = styled(Button)(({ theme }) => ({
+      fontSize: '1.5vmin',
+      fontWeight: '700',
+      margin: '0 0 0 2vmin',
+    }));
     return (
-      <Card variant='outlined' >
+      <StyledHomeCard >
         <Typography
           fontSize='1.3vmax'
         >
-          {`${spend.spendItem} : ${spend.spendCost} 
-          ${i18next.t('homepage.spendControl.monetaryUnits')}`}
+          {spend.spendItem} : {spend.spendCost}
+          {i18next.t('homepage.spendControl.monetaryUnits')}
         </Typography>
-        <Button
+        <StyledHomeButton
           onClick={() => deleteSpend()}
+          variant='outlined'
           sx={{
-            border: '1px solid black',
-            color: 'black',
-            fontWeight: '700',
-            '&:hover': {
-              border: '1px solid green',
-
-            },
           }}
         >
           {i18next.t('homepage.spendAction.remove')}
-        </Button>
-      </Card>
+        </StyledHomeButton>
+      </StyledHomeCard>
     );
   };
 
