@@ -27,7 +27,6 @@ const LoginPage = () => {
   };
 
   const handleSubmit = async (values: { email: string; password: string; }) => {
-    console.log(auth.currentUser);
     try {
       if (!values.email || !values.password) {
         throw Error('Fields have to be filled!');
