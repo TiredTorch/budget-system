@@ -9,8 +9,8 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-create-react-app"
   ],
-  features: {
-    emotionAlias: false,
+  "features": {
+    "emotionAlias": false,
   },
   "framework": "@storybook/react",
   "core": {
