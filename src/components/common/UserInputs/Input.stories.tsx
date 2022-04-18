@@ -1,41 +1,52 @@
-import { Button, CssBaseline, ThemeProvider } from '@mui/material';
-import { ComponentMeta } from '@storybook/react';
-import loginSchema from 'components/forms/Login/Login.schema';
-import { BudgetContext } from 'contexts/BudgetContext';
+import { FC } from 'react';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useFormik } from 'formik';
 import theme from 'theme/newTheme';
 import Input from './Input';
 
-const formik = useFormik({
-  initialValues: {
-    email: '',
-    password: '',
-  },
-  validationSchema: loginSchema,
-  onSubmit: (values) => alert(values),
-});
+type InputWrapperType = {
+  name: string
+  type: string
+  label: string
+}
+
+const InputWrapper: FC<InputWrapperType> = ({label}) => {
+  const formik = useFormik({
+    initialValues: {
+      field: '',
+    },
+    onSubmit: () => alert('Let me in'),
+  });
+
+  return (
+    <Input
+      formik={formik}
+      name={'field'}
+      type={'text'}
+      label={label}
+    />);
+};
 
 export default {
   title: 'Budget-Control/Input',
-  component: Input,
+  component: InputWrapper,
   decorators: [
     (Story) => (
       <ThemeProvider theme={theme}>
         <CssBaseline>
-          <BudgetContext>
-            <form onSubmit={formik.handleSubmit}>
-              <Story/>
-              <Button type='submit'/>
-            </form>
-          </BudgetContext>
+          <Story/>
         </CssBaseline>
       </ThemeProvider>
     ),
   ],
-} as ComponentMeta<typeof Input>;
+} as ComponentMeta<typeof InputWrapper>;
 
-const Template = () => (
-  <Input formik={formik} name={'email'} type={'email'} label={'Email'}/>
+const Template: ComponentStory<typeof InputWrapper> = (args) => (
+  <InputWrapper {...args}/>
 );
 
 export const Main = Template.bind({});
+Main.args = {
+  label: 'Email',
+};
