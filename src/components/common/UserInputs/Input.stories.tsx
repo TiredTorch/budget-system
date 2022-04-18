@@ -11,7 +11,7 @@ type InputWrapperType = {
   label: string
 }
 
-const InputWrapper: FC<InputWrapperType> = ({label}) => {
+const InputWrapper: FC<InputWrapperType> = ({label, type}) => {
   const formik = useFormik({
     initialValues: {
       field: '',
@@ -23,7 +23,7 @@ const InputWrapper: FC<InputWrapperType> = ({label}) => {
     <Input
       formik={formik}
       name={'field'}
-      type={'text'}
+      type={type}
       label={label}
     />);
 };
@@ -40,6 +40,10 @@ export default {
       </ThemeProvider>
     ),
   ],
+  argTypes: {
+    label: {control: 'text'},
+    type: {control: 'radio', options: ['text', 'password', 'number']},
+  },
 } as ComponentMeta<typeof InputWrapper>;
 
 const Template: ComponentStory<typeof InputWrapper> = (args) => (
@@ -49,4 +53,5 @@ const Template: ComponentStory<typeof InputWrapper> = (args) => (
 export const Main = Template.bind({});
 Main.args = {
   label: 'Email',
+  type: 'text',
 };
